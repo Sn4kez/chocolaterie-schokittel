@@ -1,0 +1,39 @@
+name: Render & Check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: System-Pakete
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y graphviz xvfb libasound2t64 libgbm1 libnss3 libxss1
+          wget -q https://github.com/jgraph/drawio-desktop/releases/latest/download/drawio-amd64-latest.deb -O drawio.deb || true
+          sudo apt-get install -y ./drawio.deb || echo "draw.io-Desktop nicht installierbar – PDF-Export wird übersprungen"
+
+      - name: Python-Pakete
+        run: pip install -r tools/requirements.txt
+
+      - name: Konsistenz-Check
+        run: python tools/check_consistency.py
+
+      - name: Rendern
+        run: xvfb-run -a tools/render.sh
+
+      - name: Artefakte hochladen
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rendered-${{ github.sha }}
+          path: out/
+          if-no-files-found: ignore
