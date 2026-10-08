@@ -1,0 +1,12 @@
+# Gerenderte Artefakte werden gebaut, nicht committet
+out/
+*.png
+*.svg
+*.pdf
+*.dxf
+*.step
+*.stp
+*.ifc
+*.usd*
+__pycache__/
+.venv/
