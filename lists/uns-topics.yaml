@@ -1,0 +1,11 @@
+# Unified Namespace – ISA-95-Struktur, MQTT mit Sparkplug B (AUT-03)
+# Ein Eintrag je Tag. Der Konsistenz-Check liest das Feld 'tag'.
+enterprise: schokittel
+site: appenzell
+area: riegellinie
+topics: []
+#  - tag: TIC-101
+#    topic: schokittel/appenzell/riegellinie/m1/T-101/TIC-101
+#    unit: degC
+#    type: process
+#    ccp: false
