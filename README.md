@@ -1,7 +1,7 @@
 # Riegellinie Chocolaterie Schokittel AG – Vibe-Engineering-Test
 
 Vorplanung einer vollautomatischen Linie für 2.000 gefüllte Schokoriegel/h,
-erzeugt von einem KI-Agenten (Claude Code) aus dem Lastenheft in `spec/`.
+mit der Hilfe diverser KI-Agenten aus dem Lastenheft in `spec/`.
 Alles im Repository ist Text: Spezifikation, Entscheidungen, Quellcode der
 Zeichnungen und Modelle. Gerenderte Dateien baut `tools/render.sh`.
 
